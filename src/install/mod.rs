@@ -201,7 +201,7 @@ pub fn cargo_install(
         Tool::WasmBindgen => "wasm-bindgen-cli".to_string(),
         _ => tool.to_string(),
     };
-    let mut cmd = Command::new("cargo");
+    let mut cmd = Command::new("xargo");
     cmd.arg("install")
         .arg("--force")
         .arg(crate_name)

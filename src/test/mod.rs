@@ -21,7 +21,7 @@ where
     K: AsRef<OsStr>,
     V: AsRef<OsStr>,
 {
-    let mut cmd = Command::new("cargo");
+    let mut cmd = Command::new("xargo");
     cmd.envs(envs);
     cmd.current_dir(path).arg("test");
     if release {

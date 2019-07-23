@@ -85,7 +85,7 @@ pub fn cargo_build_wasm(
 ) -> Result<(), Error> {
     let msg = format!("{}Compiling to Wasm...", emoji::CYCLONE);
     PBAR.info(&msg);
-    let mut cmd = Command::new("cargo");
+    let mut cmd = Command::new("xargo");
     cmd.current_dir(path).arg("build").arg("--lib");
     match profile {
         BuildProfile::Profiling => {
@@ -115,7 +115,7 @@ pub fn cargo_build_wasm(
 /// This generates the `Cargo.lock` file that we use in order to know which version of
 /// wasm-bindgen-cli to use when running tests.
 pub fn cargo_build_wasm_tests(path: &Path, debug: bool) -> Result<(), Error> {
-    let mut cmd = Command::new("cargo");
+    let mut cmd = Command::new("xargo");
     cmd.current_dir(path).arg("build").arg("--tests");
     if !debug {
         cmd.arg("--release");
